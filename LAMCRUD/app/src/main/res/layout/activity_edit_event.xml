@@ -136,6 +136,7 @@
         android:id="@+id/btnSaveChanges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="saveChangesOnClick"
         android:text="SAVE CHANGES"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
