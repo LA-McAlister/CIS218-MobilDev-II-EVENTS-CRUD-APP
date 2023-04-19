@@ -1,5 +1,6 @@
 package com.msla_mac.lamcrud
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -16,7 +17,13 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
 
         recyclerView = findViewById(R.id.eventsRecycler)
-        eventsListAdapter = EventsAdapter(eventsList)
+        eventsListAdapter = EventsAdapter(eventsList) { position ->
+            toastIt("You selected position: $position")
+
+            val intent = Intent(this, ShowEvent::class.java)
+            startActivity(intent)
+
+        }
         toastIt("Created list")
 
         recyclerView.layoutManager = LinearLayoutManager(applicationContext)

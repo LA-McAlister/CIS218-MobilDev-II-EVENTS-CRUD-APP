@@ -7,18 +7,27 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-internal class EventsAdapter(private var eventsList : List<EventsItem> ) :
+internal class EventsAdapter(private var eventsList : List<EventsItem>,
+                             private val listener: (position: Int) -> Unit ):
     RecyclerView.Adapter<EventsAdapter.MyViewHolder>() {
 
     // TODO: finish adapter
-    inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view),
+    View.OnClickListener{
         var item: TextView = view.findViewById(R.id.eventNameText)
         var description: TextView = view.findViewById(R.id.eventDescriptionText)
         var startDate: TextView = view.findViewById(R.id.eventStartDate)
         var endDate: TextView = view.findViewById(R.id.eventEndDate)
+
+        init {
+            itemView.setOnClickListener( this )
+        }
+        override fun onClick(v: View){
+            listener (adapterPosition)
+        }
     }
 
-    override fun OnCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.event_item, parent, false)
         return MyViewHolder(itemView)
     }
