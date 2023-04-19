@@ -40,6 +40,14 @@ fun addEventOnClick( v : View ) {
     startActivity(intent)
 }
 
+    fun scrollToTopOnClick( v : View){
+        recyclerView.smoothScrollToPosition(0)
+    }
+
+    fun scrollToBottomOnClick( v : View ){
+        recyclerView.smoothScrollToPosition(eventsList.size)
+    }
+
     fun addMockDataOnClick( v : View) {
         val eventItem = EventsItem( "Meeting 1", "Very long meeting", "1/1/2023", "1/2/2023"  )
         eventsList.add(eventItem)
