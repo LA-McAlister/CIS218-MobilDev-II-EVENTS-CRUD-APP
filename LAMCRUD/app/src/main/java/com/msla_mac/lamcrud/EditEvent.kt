@@ -34,6 +34,9 @@ class EditEvent : BaseActivity() {
         event.startDate = edtEditStartDate.text.toString()
         event.endDate = edtEditEndDate.text.toString()
         eventsList[currentRecord] = event
+
+        writeEventsToFile()
+
         val intent = Intent(this, ShowEvent::class.java)
         startActivity(intent)
     }

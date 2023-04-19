@@ -30,6 +30,8 @@ class AddEvent : BaseActivity() {
             edtEditEndDate.text.toString())
         eventsList.add(eventItem)
 
+        appendEventToFile( eventItem )
+
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }

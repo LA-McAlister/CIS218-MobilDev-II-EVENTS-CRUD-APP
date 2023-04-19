@@ -33,6 +33,7 @@ class MainActivity : BaseActivity() {
         recyclerView.itemAnimator = DefaultItemAnimator()
         recyclerView.adapter = eventsListAdapter
 
+        readEventsFile()
         eventsListAdapter.notifyDataSetChanged()
     }
 fun addEventOnClick( v : View ) {
@@ -49,9 +50,11 @@ fun addEventOnClick( v : View ) {
     }
 
     fun addMockDataOnClick( v : View) {
-        val eventItem = EventsItem( "Meeting 1", "Very long meeting", "1/1/2023", "1/2/2023"  )
-        eventsList.add(eventItem)
-        eventsListAdapter.notifyDataSetChanged()
+        for (i in 1..41) {
+            val eventsItem = EventsItem("Meeting $i", "Very long meeting", "1/1/2023", "1/2/2023")
+            eventsList.add(eventsItem)
+        }
+            writeEventsToFile()
+            eventsListAdapter.notifyDataSetChanged()
     }
-
 }

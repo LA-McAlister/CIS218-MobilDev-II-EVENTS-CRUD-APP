@@ -37,6 +37,7 @@ class ShowEvent : BaseActivity() {
                 toastIt("You want to delete the record")
                 //delete the element from the list
                 eventsList.removeAt(currentRecord)
+                writeEventsToFile()
                 //Go to another screen - Show all activity
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
