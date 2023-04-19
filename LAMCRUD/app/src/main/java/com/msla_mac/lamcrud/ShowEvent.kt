@@ -28,6 +28,27 @@ class ShowEvent : BaseActivity() {
         val intent = Intent(this, EditEvent::class.java)
         startActivity(intent)
     }
+
+    fun deleteEventOnClick ( v: View){
+        val builder = android.app.AlertDialog.Builder(this)
+        builder.setMessage("Are you sure you want to delete this record?")
+            .setCancelable(false)
+            .setPositiveButton("Yes") { dialog, which ->
+                toastIt("You want to delete the record")
+                //delete the element from the list
+                eventsList.removeAt(currentRecord)
+                //Go to another screen - Show all activity
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+            .setNegativeButton("No"){ dialog, which ->
+                toastIt("You canceled")
+                dialog.cancel()
+            }
+            .create()
+            .show()
+    }
+
     fun showAllEventsOnClick( v : View){
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)

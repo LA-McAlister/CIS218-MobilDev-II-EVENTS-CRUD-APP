@@ -20,7 +20,10 @@ class MainActivity : BaseActivity() {
         eventsListAdapter = EventsAdapter(eventsList) { position ->
             toastIt("You selected position: $position")
 
+            //perform whatever you want onclick
             val intent = Intent(this, ShowEvent::class.java)
+            currentRecord = position
+
             startActivity(intent)
 
         }
