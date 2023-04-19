@@ -35,6 +35,10 @@ class MainActivity : BaseActivity() {
 
         eventsListAdapter.notifyDataSetChanged()
     }
+fun addEventOnClick( v : View ) {
+    val intent = Intent(this, AddEvent::class.java)
+    startActivity(intent)
+}
 
     fun addMockDataOnClick( v : View) {
         val eventItem = EventsItem( "Meeting 1", "Very long meeting", "1/1/2023", "1/2/2023"  )
