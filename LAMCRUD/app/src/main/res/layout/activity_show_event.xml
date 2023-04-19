@@ -21,7 +21,6 @@
 
 
     <TextView
-        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name"
@@ -77,7 +76,7 @@
         app:layout_constraintVertical_bias="0.345" />
 
     <TextView
-        android:id="@+id/txtEventName"
+        android:id="@+id/txtName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -91,7 +90,7 @@
         app:layout_constraintVertical_bias="0.112" />
 
     <TextView
-        android:id="@+id/txtEventDescription"
+        android:id="@+id/txtDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
